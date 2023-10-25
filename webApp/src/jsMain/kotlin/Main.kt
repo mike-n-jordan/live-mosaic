@@ -22,9 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.CanvasBasedWindow
 import com.bumble.appyx.navigation.integration.ScreenSize
 import com.bumble.appyx.navigation.integration.WebNodeHost
-import com.bumble.puzzyx.node.app.PuzzyxAppNode
-import com.bumble.puzzyx.ui.PuzzyxTheme
-import com.bumble.puzzyx.ui.appyx_dark
+import com.bumble.livemosaic.node.app.LiveMosaicAppNode
+import com.bumble.livemosaic.ui.LiveMosaicTheme
+import com.bumble.livemosaic.ui.appyx_dark
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -37,8 +37,8 @@ import org.jetbrains.skiko.wasm.onWasmReady
 fun main() {
     val events: Channel<Unit> = Channel()
     onWasmReady {
-        CanvasBasedWindow {
-            PuzzyxTheme {
+        CanvasBasedWindow() {
+            LiveMosaicTheme {
                 val requester = remember { FocusRequester() }
                 var hasFocus by remember { mutableStateOf(false) }
 
@@ -61,7 +61,7 @@ fun main() {
                         screenSize = screenSize,
                         onBackPressedEvents = events.receiveAsFlow(),
                     ) { buildContext ->
-                        PuzzyxAppNode(
+                        LiveMosaicAppNode(
                             buildContext = buildContext,
                         )
                     }
