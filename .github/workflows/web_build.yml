@@ -9,8 +9,8 @@ env:
   CI: true
 
 jobs:
-  build:
-    name: Build
+  WebDeployment:
+    name: WebDeployment
     runs-on: macos-13
     steps:
       - name: Checkout Code
