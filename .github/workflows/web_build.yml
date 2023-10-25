@@ -31,7 +31,7 @@ jobs:
       - name: Move Output to Directory
         run: |
           mkdir distribution
-          mv webApp/build/distributions distribution/
+          mv build/dist/js/productionExecutable/* distribution/
 
       # Commit and push the directory to a specified branch (e.g., "output-branch")
       - name: Commit and Push to Branch
