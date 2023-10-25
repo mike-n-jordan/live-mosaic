@@ -40,4 +40,4 @@ jobs:
           git config user.email "actions@github.com"
           git add distribution/
           git commit -m "Add output from build"
-          git push origin HEAD:deploy-branch
+          git push -f origin HEAD:deploy-branch
